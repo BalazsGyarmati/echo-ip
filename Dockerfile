@@ -1,6 +1,6 @@
 FROM golang:alpine as builder
 RUN apk update && apk add git \
-    git clone https://github.com/BalazsGyarmati/echo-ip /go/src/echo-ip
+    && git clone https://github.com/BalazsGyarmati/echo-ip /go/src/echo-ip
 WORKDIR /go/src/echo-ip
 RUN CGO_ENABLED=0 go build -a -v -installsuffix cgo -o /go/bin/echo-ip
 
